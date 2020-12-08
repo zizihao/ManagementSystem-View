@@ -8,15 +8,19 @@
         <div class="import-box">
           <p>用户名：</p>
           <div class="input-box">
-            <el-input v-model="username" placeholder="请输入内容"></el-input>
+            <el-input v-model="form.username" placeholder="请输入内容"></el-input>
           </div>
         </div>
         <div class="import-box">
           <p>密码：</p>
           <div class="input-box">
-            <el-input v-model="password" placeholder="请输入内容"></el-input>
+            <el-input v-model="form.password" placeholder="请输入内容"></el-input>
           </div>
         </div>
+      </div>
+            <div class="tips">
+        <p>账号：admin</p>
+        <p>密码：123456</p>
       </div>
       <div class="btn">
         <el-button type="primary" class="login" round @click="onSumber"
@@ -26,37 +30,34 @@
           >重置</el-button
         >
       </div>
+
     </div>
   </div>
 </template>
 
 <script>
+import { login } from '../api/user'
 export default {
-  data() {
+  data () {
     return {
-      username: "",
-      password: "",
-    };
+      form: {
+        username: '',
+        password: ''
+      }
+    }
   },
   methods: {
-    onSumber() {
-      this.$axios({
-        method: "post",
-        url: "/login",
-        data: {
-          username: this.username,
-          password: this.password,
-        },
-      }).then((res) => {
-        console.log(res);
-      });
+    onSumber () {
+      login(this.form).then(res => {
+        console.log(res)
+      })
     },
-    reset() {
-      this.username = "";
-      this.password = "";
-    },
-  },
-};
+    reset () {
+      this.username = ''
+      this.password = ''
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped>
@@ -126,6 +127,17 @@ export default {
       margin: 0;
       width: 85px;
       height: 40px;
+    }
+  }
+  .tips{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    margin-top: -20px;
+    margin-bottom: 15px;
+    padding: 0 130px;
+    p{
+      font-size: 13px;
     }
   }
 }
