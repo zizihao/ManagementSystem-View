@@ -14,13 +14,13 @@
         <div class="import-box">
           <p>密码：</p>
           <div class="input-box">
-            <el-input v-model="form.password" placeholder="请输入内容"></el-input>
+            <el-input type="password" v-model="form.password" placeholder="请输入内容"></el-input>
           </div>
         </div>
       </div>
             <div class="tips">
         <p>账号：admin</p>
-        <p>密码：123456</p>
+        <p>密码：123</p>
       </div>
       <div class="btn">
         <el-button type="primary" class="login" round @click="onSumber"
@@ -41,15 +41,20 @@ export default {
   data () {
     return {
       form: {
-        username: '',
-        password: ''
+        username: 'admin',
+        password: '123'
       }
     }
   },
   methods: {
     onSumber () {
       login(this.form).then(res => {
-        console.log(res)
+        const { messge, token, success } = res.data
+        if (success === true) {
+          localStorage.setItem('token', token)
+          this.$message.success(messge)
+          this.$router.push('/')
+        }
       })
     },
     reset () {
