@@ -2,7 +2,7 @@
   <div class="container">
     <div class="main">
       <div class="logo">
-        <img src="../assets/logo.png" alt="" />
+        <img src="../../assets/logo.png" alt="" />
       </div>
       <div class="import">
         <div class="import-box">
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { login } from '../api/user'
+import { login } from '../../api/user'
 export default {
   data () {
     return {
@@ -53,7 +53,7 @@ export default {
         if (success === true) {
           localStorage.setItem('token', token)
           this.$message.success(messge)
-          this.$router.push('/')
+          this.$router.push('/usermanage')
         }
       })
     },

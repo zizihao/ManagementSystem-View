@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <el-header>
       <div>
-        <img src="../assets/logo.png" />
+        <img src="../../assets/logo.png" />
         <span>电商后台管理系统</span>
       </div>
       <el-button type="info">退出</el-button>
@@ -12,7 +12,7 @@
     <el-container>
       <!-- 左侧 -->
       <el-aside>
-        <!-- 侧边栏 -->
+          <aside-nav />
       </el-aside>
       <!-- 右侧 -->
       <el-main>
@@ -24,7 +24,11 @@
 </template>
 
 <script>
+import AsideNav from './component/AsideNav'
 export default {
+  components: {
+    AsideNav
+  },
   data () {
     return {}
   },
@@ -66,9 +70,6 @@ export default {
 .el-aside {
   background-color: #333744;
   width: 200px !important;
-  .el-menu {
-    border-right: none;
-  }
 }
 .el-main {
   background-color: #eaedf1;
