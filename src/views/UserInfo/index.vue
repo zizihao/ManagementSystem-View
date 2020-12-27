@@ -25,7 +25,7 @@
               <el-radio label="女"></el-radio>
             </el-radio-group>
           </el-form-item>
-          <el-row class="uploadRow">
+          <el-row class="uploadRow" type="flex" justify="center" align="center">
             <image-upload />
           </el-row>
           <el-form-item label="激活状态">
@@ -77,6 +77,5 @@ export default {
 }
 .uploadRow{
   padding-bottom: 10px;
-  padding-left: 40px;
 }
 </style>

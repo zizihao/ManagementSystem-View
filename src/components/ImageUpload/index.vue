@@ -1,10 +1,11 @@
 <template>
   <el-upload
     class="avatar-uploader"
-    action="https://jsonplaceholder.typicode.com/posts/"
+    action="http://127.0.0.1:3000/upload"
     :show-file-list="false"
     :on-success="handleAvatarSuccess"
     :before-upload="beforeAvatarUpload"
+    :file-list="fileList"
   >
     <img v-if="imageUrl" :src="imageUrl" class="avatar" />
     <i v-else class="el-icon-plus avatar-uploader-icon"></i>
@@ -15,12 +16,14 @@
 export default {
   data () {
     return {
-      imageUrl: ''
+      imageUrl: '',
+      fileList: []
     }
   },
   methods: {
     // 成功后
     handleAvatarSuccess (res, file) {
+      console.log(file)
       this.imageUrl = URL.createObjectURL(file.raw)
     },
     // 上传前，校验
