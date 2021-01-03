@@ -9,6 +9,7 @@ const routes = [
   {
     path: '/',
     component: Home,
+    redirect: '/usermanage',
     children: [
       { path: 'userinfo', component: () => import('../views/UserInfo/index.vue') },
       { path: 'usermanage', component: () => import('../views/UserManage/index.vue') }

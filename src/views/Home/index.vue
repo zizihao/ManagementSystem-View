@@ -4,7 +4,7 @@
     <el-header>
       <div>
         <img src="../../assets/logo.png" />
-        <span>电商后台管理系统</span>
+        <span>后台管理系统</span>
       </div>
       <el-button type="info">退出</el-button>
     </el-header>
@@ -12,12 +12,14 @@
     <el-container>
       <!-- 左侧 -->
       <el-aside>
-          <aside-nav />
+        <aside-nav />
       </el-aside>
       <!-- 右侧 -->
       <el-main>
-        <!-- 路由占位符 -->
-        <router-view></router-view>
+        <!-- <transition mode="out-in" enter-active-class="animate__animated animate__fadeInLeft"  leave-active-class="animate__animated animate__fadeOutRight"> -->
+          <!-- 路由占位符 -->
+          <router-view></router-view>
+        <!-- </transition> -->
       </el-main>
     </el-container>
   </el-container>
@@ -25,6 +27,7 @@
 
 <script>
 import AsideNav from './component/AsideNav'
+
 export default {
   components: {
     AsideNav
@@ -73,5 +76,11 @@ export default {
 }
 .el-main {
   background-color: #eaedf1;
+}
+.zoom-enter-active {
+  animation: zoomIn 0.5s;
+}
+.zoom-leave-active {
+  animation: zoomOut 0.5s;
 }
 </style>

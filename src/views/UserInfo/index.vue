@@ -56,7 +56,7 @@ export default {
     return {
       form: {
         username: '',
-        date: '',
+        date: '2020-12-29',
         activate: false,
         sex: '',
         desc: ''
@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     onSubmit () {
-      console.log('submit!')
+      console.log(this.form)
     }
   }
 }
